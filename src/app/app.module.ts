@@ -5,18 +5,22 @@ import { AppComponent } from './app.component';
 import { EjemploComponent } from './ejemplo/ejemplo.component';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomerAddComponent } from './components/customer-add/customer-add.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     EjemploComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    CustomerAddComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [CustomerListComponent]
+  bootstrap: [CustomerAddComponent]
 })
 export class AppModule { }

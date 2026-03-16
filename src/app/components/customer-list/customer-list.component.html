@@ -1,5 +1,11 @@
 <h2>Customer List</h2>
-
+<ul>
+    <!--creamos un objeto customer de tipo customer y hacemos una
+    iteración de dato por dato -->
+    <li *ngFor="let c of customers"> 
+        {{c.id}} - {{c.firstName}} - {{c.lastName}} - {{c.email}}
+    </li>
+</ul>
 <table class="table">
   <thead>
     <tr>
