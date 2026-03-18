@@ -1,12 +1,17 @@
-<h2>Customer List</h2>
-<ul>
-    <!--creamos un objeto customer de tipo customer y hacemos una
-    iteración de dato por dato -->
+
+<!-- <ul>
+    creamos un objeto customer de tipo customer y hacemos una
+    iteración de dato por dato 
     <li *ngFor="let c of customers"> 
         {{c.id}} - {{c.firstName}} - {{c.lastName}} - {{c.email}}
     </li>
-</ul>
-<table class="table">
+    
+</ul>  -->
+<div class="container">
+  <h2>Customer List</h2>
+  <!-- El routerLink es una directiva de Angular que se utiliza para navegar entre diferentes rutas en una aplicación Angular. -->
+  <a  class="btn btn-primary" routerLink="/customers/add"> Crear Customer</a>
+  <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -25,3 +30,4 @@
     
   </tbody>
 </table>
+</div>
