@@ -7,7 +7,7 @@ import { Customer } from '../customer';
   providedIn: 'root'
 })
 export class CustomerService {
-  private api : string = 'http://localhost:8080/api/customers/readAll';
+  private api : string = 'http://localhost:8080/api/customers';
   constructor(
     private http: HttpClient) { }
     getCustomerList():Observable<Customer[]> {
@@ -15,12 +15,12 @@ export class CustomerService {
       //  es decir, datos que pueden llegar en un futuro, como por ejemplo, 
       // una respuesta de una API. En este caso, el metodo getCustomerList devuelve 
       // un Observable de tipo Customer[], es decir, un Observable que emite un array de Customer.
-      return this.http.get<Customer[]>(this.api);
+      return this.http.get<Customer[]>(`${this.api}/readAll`);
     }
     createCustomer(customer: Customer): Observable<Customer> {
       // El metodo createCustomer recibe un objeto de tipo Customer
       //  y devuelve un Observable de tipo Customer, 
       // es decir, un Observable que emite un objeto de tipo Customer. 
-      return this.http.post<Customer>(this.api, customer);
+      return this.http.post<Customer>(`${this.api}/create`, customer);
     }
 }
