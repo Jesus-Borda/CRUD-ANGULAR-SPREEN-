@@ -18,6 +18,8 @@
       <th scope="col">First</th>
       <th scope="col">Last</th>
       <th scope="col">email</th>
+      <th scope="col">Eliminar</th>
+      <th scope="col">Editar</th>
     </tr>
   </thead>
   <tbody>
@@ -26,6 +28,8 @@
       <td>{{c.firstName}}</td>
       <td>{{c.lastName}}</td>
       <td>{{c.email}}</td>
+      <td><button class="btn btn-danger" (click)="deleteCustomer(c.id)">Eliminar</button></td>
+      <td><button class="btn btn-warning" [routerLink]="['/customers/edit', c.id]">Editar</button></td>
     </tr>
     
   </tbody>

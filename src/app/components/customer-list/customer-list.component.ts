@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/customer';
 import { CustomerService } from 'src/app/service/customer.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-customer-list',
@@ -9,8 +11,12 @@ import { CustomerService } from 'src/app/service/customer.service';
 })
 export class CustomerListComponent implements OnInit {
   customers: Customer [] = [];
-  constructor(private customerService : CustomerService) { }
-
+  constructor(
+    private customerService : CustomerService,
+    private router: Router,
+    
+  ) { }
+  
   ngOnInit(): void {
     //LO que se hace en el ngOnInit es llamar al metodo a penas se carga el componente
     //  listCustomers que a su vez llama al metodo getCustomerList del servicio CustomerService,
@@ -29,6 +35,21 @@ export class CustomerListComponent implements OnInit {
       }
 
     );
+  }
+  deleteCustomer(id: number|undefined): void {
+    console.log(id),
+    this.customerService.deleteCustomerById(id).subscribe(
+       //Esto es para imprimir la respuesta de la API despues de eliminar un cliente,
+      //Esto hace que se refresque la lista de clientes despues de eliminar un cliente,
+      ()=> this.listCustomers()
+    );
+
+    
+  }
+  editCustomer(id: number|undefined): void {
+      console.log(id);
+      this.router.navigate(['/customers/edit', id]);
+    
   }
 
 }
